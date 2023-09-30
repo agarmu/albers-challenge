@@ -1,0 +1,1 @@
+export interface labColor {L: number, a: number, b: number};

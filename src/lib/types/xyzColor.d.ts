@@ -1,0 +1,1 @@
+export interface xyzColor {x: number, y: number, z: number};

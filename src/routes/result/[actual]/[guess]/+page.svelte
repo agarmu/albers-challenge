@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ResultColorBox from '$lib/ResultColorBox.svelte';
 	import Result from '$lib/Result.svelte';
-	import { hexToRgb } from '$lib/helpers/colorHelper';
+	import { getRgbScore, hexToRgb } from '$lib/helpers/colorHelper';
 	import type { PageData } from './$types';
 	import type { rgbColor } from '$lib/types/rgbColor';
 	import { makeid } from '$lib/helpers/seedHelper';
@@ -17,12 +17,7 @@
 		goto(`/game/${seed}`)
 	}
 	
-	let score = 0;
-	score += Math.abs(actual.r - guess.r);
-	score += Math.abs(actual.g - guess.g);
-	score += Math.abs(actual.b - guess.b);
-	score = 100 - (score / 7.65);
-	score = Math.round(score);
+	let score = Math.round(getRgbScore(actual, guess))
 </script>
 
 <main>
